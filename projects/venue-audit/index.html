@@ -29,6 +29,8 @@ button{background:var(--acc);color:#fff;border:0;border-radius:10px;padding:12px
 <section id="out" aria-live="polite"></section>
 </main>
 <script>
+// EDIT: your booking link (Calendly etc.) and offer price
+const BOOKING_URL='https://calendly.com/YOUR-LINK';const OFFER='Done-for-you fix: we implement your top 5 fixes in 14 days.';
 const Q={
  "Website":[["Clear pricing or 'from' price on site",3,"Show a 'from' price — hidden pricing loses most enquiries."],
   ["Enquiry form above the fold on mobile",3,"Put the enquiry button in the first screen on mobile."],
@@ -61,7 +63,8 @@ document.getElementById('go').onclick=()=>{
  gaps.sort((a,b)=>b[0]-a[0]);
  const out=document.getElementById('out');out.style.display='block';
  out.innerHTML=`<div class="score" style="color:${c}">${s}/100</div><div class="bar"><i style="width:${s}%;background:${c}"></i></div><p>${verdict}</p>`+
-  (gaps.length?`<h3>Your top fixes</h3><ol>${gaps.slice(0,5).map(g=>`<li>${g[1]}</li>`).join('')}</ol>`:'<p>Every box ticked. Next step: grow ad spend on what converts.</p>');
+  (gaps.length?`<h3>Your top fixes</h3><ol>${gaps.slice(0,5).map(g=>`<li>${g[1]}</li>`).join('')}</ol>`:'<p>Every box ticked. Next step: grow ad spend on what converts.</p>')+
+  `<p><strong>${OFFER}</strong></p><a href="${BOOKING_URL}" target="_blank" rel="noopener"><button type="button">Book a free 15-min fix call</button></a>`;
  out.scrollIntoView({behavior:'smooth'});
 };
 </script>
